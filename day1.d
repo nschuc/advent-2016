@@ -15,11 +15,11 @@ void main(string[] args) {
         dir *= move[0] == 'R' ? complex(0, -1) : complex(0, 1);
         for(int i = 0; i < to!int(move[1..$]); i++) {
             loc += dir;
-            if(!first && to!string(loc) in visited) {
+            if(!first && loc.toString() in visited) {
                 writeln("first ", abs(loc.re) + abs(loc.im));
                 first = true;
             }
-            visited[to!string(loc)] = true;
+            visited[loc.toString()] = true;
         }
     }
     writeln("final ", abs(loc.re) + abs(loc.im));
